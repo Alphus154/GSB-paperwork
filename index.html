@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <title>GSB Paperwork Generator</title>
+    <img src="https://i.imgur.com/1dhxhIu.png" alt=GSB logo" />
+
+    <style>
+        /* Set background color for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* Full viewport height */
+            position: relative;
+            /* Set relative positioning to the body */
+        }
+
+
+        /* Position the image in the top right corner */
+        img {
+            position: absolute;
+            /* Absolute positioning */
+            top: 10px;
+            /* Space from the top */
+            left: 10px;
+            /* Space from the right */
+            width: 150px;
+            /* Image width */
+            height: auto;
+            /* Maintain aspect ratio */
+            z-index: 1000;
+        }
+    </style>
+</head>
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .center-top {
+            text-align: center;
+            /* Center text horizontally */
+            margin: 0;
+            /* Remove default margins */
+            padding-top: 10px;
+            /* Optional: Add some spacing from the top */
+        }
+    </style>
+    <div class="center-top">
+        <h1>GSB Paperwork Generator</h1>
+        <p>If you find any issues or have a suggestion, contact <b>Alphus</b> on Discord</p>
+    </div>
+
+
+  <!-- Navigation Buttons -->
+<div class="container mt-3 d-flex justify-content-center" id="navigationBar">
+    <button class="btn btn-success me-2" onclick="showSection('gsbEmailSection', this)">GSB Email</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('dutyReportSection', this)">Duty Report</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('incidentSection', this)">Incident Report</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('arrestSection', this)">Arrest Report</button>
+  <button class="btn btn-secondary me-2" onclick="showSection('transitSection', this)">VIP Transit Report</button>
+  <button class="btn btn-secondary me-2" onclick="showSection('warrantSection', this)">Warrant Report</button>
+</div>
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               <style>
+            body {
+                background-color: #4c0606;
+                /* Dark green */
+                color: white;
+                /* White text */
+            }
+        </style>
+    </head>
+
+  <!-- Email -->
+    <div id="gsbEmailSection" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #4c0606; color: white;"> <!-- Set background color to #4c0606 -->
+            <div class="card-body">
+                <!--Email Form Fields -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Date of Email:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtdateOfEmail" class="form-control" style="width: 600px"placeholder="2 nd,rd,th of January 2025" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Subject:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtSubject" class="form-control" style="width: 600px"/>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Their Name:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtTheirName" class="form-control" style="width: 600px"/>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Email Text:</div>
+                    <div class="col-md-10">
+                        <textarea id="txtEmailText" class="form-control" style="width: 600px" rows="5"></textarea>
+                    </div>
+                </div>
+                 <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Signature Image:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtSignatureImage" class="form-control" style="width: 600px"/>
+                    </div>
+                </div>
+  <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Your Name:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtYourName" class="form-control" style="width: 600px"/>
+                    </div>
+                </div>
+  <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Your Rank:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtYourRank" class="form-control" style="width: 600px"/>
+                    </div>
+                </div>
+  <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Badge Number:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtBadgeNumber" class="form-control" style="width: 600px"/>
+                    </div>
+                </div>
+
+                             <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createEmail();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyEmailSuccess"></p>
+                        <textarea id="displayEmailBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+function createEmail() {
+            const emailDate = $('#txtdateOfEmail').val();
+            const subject = $('#txtSubject').val();
+            const theirName = $('#txtTheirName').val();
+            const emailText = $('#txtEmailText').val();
+            const signatureImg = $('#txtSignatureImage').val();
+            const yourName = $('#txtYourName').val();
+            const yourRank = $('#txtYourRank').val();
+            const badge = $('#txtBadgeNumber').val();
+ 
+          
+ const emailTemplate = `
+[img]https://i.imgur.com/Lp6dMi4.png[/img]
+[divbox=#dbd3d3]
+[divbox=white]
+[img]https://i.imgur.com/1dhxhIu.png[/img][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=130]SAN ANDREAS STATE GOVERNMENT[/size]
+[size=115][color=#800000]Government Security Bureau[/color][/size][/b]
+[size=100][i] [font=Times New Roman]"Shielding Officials, Strengthening Government."[/font][/i][size=100]
+[size=115][i]${subject}[/i][/size]
+[size=100]${emailDate}[/size]
+[/font][/right][/aligntable]
+[hr]
+[list=none]
+
+[b]${theirName},[/b]
+
+${emailText}
+
+[/list]
+[hr][/hr][list=none]
+
+Sincerely,
+ 
+[img]${signatureImg}[/img]
+[size=105]${yourName},[/size]
+[size=100][b] ${yourRank} | [color=#800000]Government Security Bureau[/color][/b][/size]
+[color=#B38F00][size=100][b]San Andreas State Government[/b][/size][/color]
+[size=85]Rockford Hills City Hall, Carcer Way, Los Santos.[/size]
+✉ [url=https://gov.eclipse-rp.net/ucp.php?i=pm&mode=compose&u=${badge}]${yourName}@sa.gov.us[/url]
+
+[/divbox]
+[divbox=white]
+[size=80][i][b]NOTICE OF CONFIDENTIALITY[/b]: The information contained within this electronic mail message is of an exceedingly confidential nature and may contain sensitive data intended solely for the aforementioned recipient(s). Should you receive this communication inadvertently or are not the intended addressee, we request that you immediately inform the sender and delete this correspondence from your system. The contents of this electronic mail message are strictly confidential and any unauthorized disclosure, reproduction, or distribution is strictly prohibited.[/i][/size]
+[/divbox]
+[/divbox]
+[img]https://i.imgur.com/Lp6dMi4.png[/img]
+        `;
+  document.getElementById("displayEmailBB").value = emailTemplate.trim();
+            document.querySelector("#displayemailBB").select();
+            document.execCommand('copy');
+
+            $('#copyEmailSuccess').text('Copied to clipboard!');
+        }
+
+</script>
