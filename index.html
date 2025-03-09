@@ -88,6 +88,46 @@
         </style>
     </head>
 
+<script>
+    $(document).ready(function () {
+        // Hide all sections initially
+        $('.container').hide();
+
+        // Show only the Duty Report section by default
+        $('#gsbEmailSection').show();
+
+        // Highlight the Duty Report button as active
+        $('#navigationBar .btn').removeClass('btn-success').addClass('btn-secondary');
+        $('#navigationBar button[data-section="gsbEmailSection"]').removeClass('btn-secondary').addClass('btn-success');
+    });
+
+    function showSection(sectionId, button) {
+        // Hide all sections
+        $('.container').hide();
+
+        // Show the selected section
+        $('#' + sectionId).show();
+
+        // Reset all buttons inside #navigationBar to btn-secondary
+        $('#navigationBar .btn').removeClass('btn-success').addClass('btn-secondary');
+
+        // Highlight the clicked button with btn-success
+        $(button).removeClass('btn-secondary').addClass('btn-success');
+    }
+</script>
+
+<script>
+function showSection(sectionId) {
+  // Hide all sections with the class 'myHideableSection'
+    const sections = document.querySelectorAll('.myHideableSection');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Show the selected section
+    document.getElementById(sectionId).style.display = 'block';
+}
+</script>
   <!-- Email -->
     <div id="gsbEmailSection" class="container mt-3 myHideableSection">
         <div class="card" style="background-color: #4c0606; color: white;"> <!-- Set background color to #4c0606 -->
@@ -212,4 +252,1285 @@ Sincerely,
             $('#copyEmailSuccess').text('Copied to clipboard!');
         }
 
+</script>
+
+<!--Duty Report -->
+    <div id="dutyReportSection" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #4c0606; color: white;"> <!-- Set background color to #4c0606 -->
+            <div class="card-body">
+
+ <!-- Duty Report Form Fields -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Full Name:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtFullName" class="form-control" style="width: 600px" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Rank:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtRank" class="form-control" style="width: 600px" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Shift Start:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtShiftStart" class="form-control" style="width: 600px"placeholder="DD/MMM/YYYY XX:XX" />
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Shift End:</div>
+                    <div class="col-md-10">
+                       <input type="text" id="txtShiftEnd" class="form-control" style="width: 600px"placeholder="DD/MMM/YYYY XX:XX" />
+                    </div>
+                </div>
+<div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Shift Summary:</div>
+<div class="col-md-10">
+                       <textarea type="text" id="txtShiftSummary" class="form-control" style="width: 600px" rows="5"></textarea>
+                    </div>
+                </div>
+   
+<!-- Incident 1 -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incident 1:</div>
+                    <div class="col-md-10">
+                        <div class="mb-2">
+                            <label for="txtIncident1Narrative" style="font-weight: bold;">Situation Narrative</label>
+                            <textarea id="txtIncident1Narrative" class="form-control" style="width: 600px"
+                                rows="3"></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtIncident1Link" style="font-weight: bold;">Date & Time</label>
+                            <input type="text" id="txtIncident1Time" class="form-control" style="width: 600px"placeholder="DD/MMM/YYYY XX:XX" />
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="txtIncident1Link" style="font-weight: bold;">Link to Paperwork</label>
+                            <input type="text" id="txtIncident1Link" class="form-control" style="width: 600px" />
+                        </div>
+                    </div>
+                </div>
+
+<!-- Incident 2 -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incident 2:</div>
+                    <div class="col-md-10">
+                        <div class="mb-2">
+                            <label for="txtIncident2Narrative" style="font-weight: bold;">Situation Narrative</label>
+                            <textarea id="txtIncident2Narrative" class="form-control" style="width: 600px"
+                                rows="3"></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtIncident2Link" style="font-weight: bold;">Date & Time</label>
+                            <input type="text" id="txtIncident2Time" class="form-control" style="width: 600px"placeholder="DD/MMM/YYYY XX:XX" />
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="txtIncident2Link" style="font-weight: bold;">Link to Paperwork</label>
+                            <input type="text" id="txtIncident2Link" class="form-control" style="width: 600px" />
+                        </div>
+                    </div>
+                </div>
+
+<!-- Incident 3 -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incident 3:</div>
+                    <div class="col-md-10">
+                        <div class="mb-2">
+                            <label for="txtIncident3Narrative" style="font-weight: bold;">Situation Narrative</label>
+                            <textarea id="txtIncident3Narrative" class="form-control" style="width: 600px"
+                                rows="3"></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtIncident3Link" style="font-weight: bold;">Date & Time</label>
+                            <input type="text" id="txtIncident3Time" class="form-control" style="width: 600px"placeholder="DD/MMM/YYYY XX:XX" />
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="txtIncident3Link" style="font-weight: bold;">Link to Paperwork</label>
+                            <input type="text" id="txtIncident3Link" class="form-control" style="width: 600px" />
+                        </div>
+                    </div>
+                </div>
+
+                            <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createDutyReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyDutyReportSuccess"></p>
+                        <textarea id="displayDutyReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+function createDutyReport() {
+            const fullName = $('#txtFullName').val();
+            const rank = $('#txtRank').val();
+            const startShift = $('#txtShiftStart').val();
+            const endShift = $('#txtShiftEnd').val();
+            const shiftSummary = $('#txtShiftSummary').val();
+
+  // Incident 1 details
+            const incident1Narrative = document.getElementById('txtIncident1Narrative').value;
+            const incident1Time = document.getElementById('txtIncident1Time').value;
+            const incident1Link = document.getElementById('txtIncident1Link').value;
+
+            // Incident 2 details
+            const incident2Narrative = document.getElementById('txtIncident2Narrative').value;
+            const incident2Time = document.getElementById('txtIncident2Time').value;
+            const incident2Link = document.getElementById('txtIncident2Link').value;
+
+            // Incident 3 details
+            const incident3Narrative = document.getElementById('txtIncident3Narrative').value;
+            const incident3Time = document.getElementById('txtIncident3Time').value;
+            const incident3Link = document.getElementById('txtIncident3Link').value;
+
+                           
+          
+ const dutyTemplate = `
+[img]https://i.imgur.com/KluN5gs.png[/img]
+[divbox=#dbd3d3]
+[divbox=#4c0606][b][color=white]Agent Details[/color][/b][/divbox]
+[divbox=white]
+[b]Full Name:[/b] ${fullName}
+[b]Rank:[/b] ${rank}
+[/divbox]
+[divbox=#4c0606][b][color=white]Shift Details[/color][/b][/divbox]
+[divbox=white]
+[b]Shift Start:[/b] ${startShift}
+[b]Shift End:[/b] ${endShift}
+[b]Shift Summary:[/b] ${shiftSummary}
+[/divbox]
+[divbox=#4c0606][b][color=white]Incidents[/color][/b][/divbox]
+[divbox=white]
+[spoiler=Incident 1]
+[b]Situation Narrative:[/b] ${incident1Narrative}
+[b]Time of Event:[/b] ${incident1Time}
+[b]Link to Report:[/b] ${incident1Link}
+[/spoiler]
+[spoiler=Incident 2]
+[b]Situation Narrative:[/b] ${incident2Narrative}
+[b]Time of Event:[/b] ${incident2Time}
+[b]Link to Report:[/b] ${incident2Link}
+[/spoiler]
+[spoiler=Incident 3]
+[b]Situation Narrative:[/b] ${incident3Narrative}
+[b]Time of Event:[/b] ${incident3Time}
+[b]Link to Report:[/b] ${incident3Link}
+[/spoiler]
+        `;
+  document.getElementById("displayDutyReportBB").value = dutyTemplate.trim();
+            document.querySelector("#displayDutyReportBB").select();
+            document.execCommand('copy');
+
+            $('#copyDutyReportSuccess').text('Copied to clipboard!');
+        }  
+</script>
+<!-- Incident Report -->
+    <div id="incidentSection" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #4c0606; color: white;"> <!-- Set background color to #4c0606 -->
+            <div class="card-body">
+<!-- Duty Report Form Fields -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incident Date:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtincidentDate" class="form-control" style="width: 600px"placeholder="DD/MMM/YYYY" />
+                    </div>
+                </div>
+ <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incident Duration:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtincidentDuration" class="form-control" style="width: 600px"placeholder="0h 0m" />
+                    </div>
+                </div>
+ <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Suspects Full Name:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtsuspectsName" class="form-control" style="width: 600px"placeholder="John Doe" />
+                    </div>
+                </div>
+<div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Suspects Phone Number:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtsuspectsNumber" class="form-control" style="width: 600px" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Agents/Officers Involved:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtpeopleInvolved" class="form-control" style="width: 600px" />
+        <div class="mt-2">
+            <button id="btnAdd" class="btn btn-primary">Add</button>
+            <button id="btnRemove" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="peopleList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAdd").addEventListener("click", function () {
+        let inputField = document.getElementById("txtpeopleInvolved");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("peopleList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemove").addEventListener("click", function () {
+        let list = document.getElementById("peopleList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+  <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incident Summary:</div>
+                    <div class="col-md-10">
+                        <textarea id="txtincidentSummary" class="form-control" style="width: 600px" rows="5"></textarea>
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Proof of RP:</div>
+    <div class="col-md-10">
+        <div class="input-wrapper" style="display: flex; align-items: center; width: 600px;">
+            <input type="text" id="txtrpProof" class="form-control" placeholder="MANDATORY" readonly style="flex: 1;" />
+            <button id="btnUploadRP" class="btn btn-success" style="margin-left: 10px;">Upload to Imgur</button>
+        </div>
+        <input type="file" id="fileRP" class="form-control mt-2" style="width: 600px;" />
+    </div>
+</div>
+<div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Evidence:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtevidence" class="form-control" style="width: 600px" />
+                    </div>
+                </div>
+ <!-- Incident Outcome Buttons -->
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incident Outcome:</div>
+    <div class="col-md-10">
+        <button type="button" id="btnOutcomeSuccess" class="btn btn-success"
+            onclick="setIncidentOutcome('Successful')">Successful</button>
+        <button type="button" id="btnOutcomeUnsuccessful" class="btn btn-danger"
+            onclick="setIncidentOutcome('Unsuccessful')">Unsuccessful</button>
+        <p id="selectedOutcome" style="margin-top: 10px; font-weight: bold;">No outcome selected</p>
+        <input type="hidden" id="hiddenOutcome" value="No outcome selected" />
+    </div>
+</div>
+
+ <div class="row mb-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <button type="button" id="btnCopy" onClick="createIncidentReport();" class="btn btn-success">
+            Submit and copy to clipboard
+        </button>
+        <p id="copyIncidentReportSuccess"></p>
+        <textarea id="displayIncidentReportBB" class="form-control" style="width: 600px" rows="10"></textarea>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+
+<script>
+    function setIncidentOutcome(outcome) {
+        document.getElementById("selectedOutcome").innerText = outcome;
+        document.getElementById("hiddenOutcome").value = outcome; // Store outcome for submission
+    }
+
+    function createIncidentReport() {
+        const incidentDate = document.getElementById("txtincidentDate").value.trim();
+        const incidentDuration = document.getElementById("txtincidentDuration").value.trim();
+        const suspectFullName = document.getElementById("txtsuspectsName").value.trim();
+        const suspectPhoneNumber = document.getElementById("txtsuspectsNumber").value.trim();
+        const incidentSummary = document.getElementById("txtincidentSummary").value.trim();
+        const proofRP = document.getElementById("txtrpProof").value.trim();
+        const evidence = document.getElementById("txtevidence").value.trim();
+
+        // ✅ Ensure we get the correct incident outcome
+        const incidentOutcome = document.getElementById("hiddenOutcome").value || "No outcome selected";
+        const outcomeBB = incidentOutcome === "Successful"
+            ? "[highlight=green][b]Successful[/b][/highlight]"
+            : "[highlight=red][b]Unsuccessful[/b][/highlight]";
+
+        // ✅ Get officers from the dynamic list
+        let officersList = document.querySelectorAll("#peopleList li");
+        let officersInvolved = "";
+        officersList.forEach((officer) => {
+            officersInvolved += `[*] ${officer.textContent}\n`;
+        });
+
+        // ✅ BBCode Template
+        const IncidentTemplate = `
+[img]https://i.imgur.com/1IO7nGN.png[/img]
+[divbox=#dbd3d3]
+[divbox=#4c0606][b][color=white]Details[/color][/b][/divbox]
+[divbox=white]
+[b]Date:[/b] ${incidentDate}
+[b]Incident Duration:[/b] ${incidentDuration}
+[/divbox]
+[divbox=#4c0606][b][color=white]Suspect Details[/color][/b][/divbox]
+[divbox=white]
+[b]Full Name(s) If applicable:[/b] ${suspectFullName}
+[b]Phone Number(s) If applicable:[/b] ${suspectPhoneNumber}
+[/divbox]
+[divbox=#4c0606][b][color=white]Agents/Officers Involved[/color][/b][/divbox]
+[divbox=white]
+[b]Agents/Officers Involved:[/b]
+[list]
+${officersInvolved}
+[/list]
+[b]Incident Summary:[/b] ${incidentSummary}
+[/divbox]
+[divbox=#4c0606][b][color=white]Evidence[/color][/b][/divbox]
+[divbox=white]
+[b]Provide your bodycam footage if possible below((screenshots or even short videos)):[/b]
+[Spoiler=Bodycam Evidence]
+[list][*][ooc]${proofRP}[/ooc]
+[*] ${evidence}[/list]
+[/Spoiler]
+
+Incident Outcome: ${outcomeBB}
+[/divbox]
+[/divbox]
+[img]https://i.imgur.com/Fttvrwf.png[/img]
+        `;
+
+        // ✅ Display BBCode in Textarea
+        document.getElementById("displayIncidentReportBB").value = IncidentTemplate.trim();
+
+        // ✅ Copy BBCode to Clipboard
+        const textArea = document.getElementById("displayIncidentReportBB");
+        textArea.select();
+        document.execCommand("copy");
+
+        // ✅ Show confirmation message
+        document.getElementById("copyIncidentReportSuccess").innerText = "Copied to clipboard!";
+    }
+</script>
+<!-- Arrest Report -->
+    <div id="arrestSection" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #4c0606; color: white;"> <!-- Set background color to #4c0606 -->
+            <div class="card-body">
+ <!-- Arrest Report Form Fields -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Suspects Full Name:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtsuspectName" class="form-control" style="width: 600px"placeholder="John Doe" />
+                    </div>
+                </div>
+  <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Suspects Phone Number:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtphoneNumber" class="form-control" style="width: 600px" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Mugshot:</div>
+    <div class="col-md-10">
+        <div class="input-wrapper" style="display: flex; align-items: center; width: 600px;">
+            <input type="text" id="txtmugshot" class="form-control" placeholder="MANDATORY" readonly style="flex: 1;" />
+            <button id="btnUploadMugshot" class="btn btn-success" style="margin-left: 10px;">Upload to Imgur</button>
+        </div>
+        <input type="file" id="fileMugshot" class="form-control mt-2" style="width: 600px;" />
+    </div>
+</div>
+
+                    <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Arrest Date & Time:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtdateAndTime" class="form-control" style="width: 600px"placeholder="DD/MMM/YYYY XX:XX" />
+                    </div>
+                </div>
+ <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Suspects Licenses:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtlicenses" class="form-control" style="width: 600px" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Charges:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtcharges" class="form-control" style="width: 600px"placeholder="GF02 - Robbery" />
+        <div class="mt-2">
+            <button id="btnAddCharge" class="btn btn-primary">Add</button>
+            <button id="btnRemoveCharge" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="chargeList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddCharge").addEventListener("click", function () {
+        let inputField = document.getElementById("txtcharges");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("chargeList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveCharge").addEventListener("click", function () {
+        let list = document.getElementById("chargeList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Agents/Officers Involved:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtpeoplesinvolved" class="form-control" style="width: 600px"placeholder="Agent II John Doe" />
+        <div class="mt-2">
+            <button id="btnAddAgent" class="btn btn-primary">Add</button>
+            <button id="btnRemoveAgent" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="AgentList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddAgent").addEventListener("click", function () {
+        let inputField = document.getElementById("txtpeoplesinvolved");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("AgentList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveAgent").addEventListener("click", function () {
+        let list = document.getElementById("AgentList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+ <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Arrest Summary:</div>
+                    <div class="col-md-10">
+                         <textarea id="txtsummary" class="form-control" style="width: 600px" rows="5"></textarea>
+
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Illegal Possesions:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtillegal" class="form-control" style="width: 600px"placeholder="1x Pistol .50" />
+        <div class="mt-2">
+            <button id="btnAddItem" class="btn btn-primary">Add</button>
+            <button id="btnRemoveItem" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="ItemList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddItem").addEventListener("click", function () {
+        let inputField = document.getElementById("txtillegal");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("ItemList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveItem").addEventListener("click", function () {
+        let list = document.getElementById("ItemList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Legal Possesions:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtlegal" class="form-control" style="width: 600px"placeholder="1x Radio" />
+        <div class="mt-2">
+            <button id="btnAddLegalItem" class="btn btn-primary">Add</button>
+            <button id="btnRemoveLegalItem" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="ItemListLegal" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddLegalItem").addEventListener("click", function () {
+        let inputField = document.getElementById("txtlegal");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("ItemListLegal").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveLegalItem").addEventListener("click", function () {
+        let list = document.getElementById("ItemListLegal");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Photograph of Possessions:</div>
+    <div class="col-md-10">
+        <div class="input-wrapper" style="display: flex; align-items: center; width: 600px;">
+            <input type="text" id="txtitems" class="form-control" placeholder="MANDATORY" readonly style="flex: 1;" />
+            <button id="btnUploadItems" class="btn btn-success" style="margin-left: 10px;">Upload to Imgur</button>
+        </div>
+        <input type="file" id="fileItems" class="form-control mt-2" style="width: 600px;" />
+    </div>
+</div>
+
+<!-- Repeat for other inputs -->
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Proof of RP:</div>
+    <div class="col-md-10">
+        <div class="input-wrapper" style="display: flex; align-items: center; width: 600px;">
+            <input type="text" id="txtarrestRP" class="form-control" placeholder="MANDATORY" readonly style="flex: 1;" />
+            <button id="btnUploadproofRP" class="btn btn-success" style="margin-left: 10px;">Upload to Imgur</button>
+        </div>
+        <input type="file" id="filearrestRP" class="form-control mt-2" style="width: 600px;" />
+    </div>
+</div>
+ <div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Bodycam Footage:</div>
+    <div class="col-md-10">
+        <input type="text" id="bodycamLink" class="form-control" style="width: 600px" />
+        <div class="mt-2">
+            <button id="btnAddFootage" class="btn btn-primary">Add</button>
+            <button id="btnRemoveFootage" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="bodycamList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddFootage").addEventListener("click", function () {
+        let inputField = document.getElementById("bodycamLink");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("bodycamList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveFootage").addEventListener("click", function () {
+        let list = document.getElementById("bodycamList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+
+              <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createArrestReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyArrestReportSuccess"></p>
+                        <textarea id="displayArrestReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+function createArrestReport() {
+    const suspectName = $('#txtsuspectName').val();
+    const phoneNumber = $('#txtphoneNumber').val();
+    const suspectMugshot = $('#txtmugshot').val();
+    const dateAndTime = $('#txtdateAndTime').val();
+    const suspectLicenses = $('#txtlicenses').val();
+    
+    // Collecting items from the lists
+    const charges = getListItems('chargeList');
+    const peopleInvolved = getListItems('AgentList');
+    const illegalItems = getListItems('ItemList');
+    const legalItems = getListItems('ItemListLegal');
+    const itemsPhoto = $('#txtitems').val();
+    const arrestRpProof = $('#txtarrestRP').val();
+    const bodycamLink = $('#bodycamLink').val();
+    const arrestSummary = $('#txtsummary').val();
+  
+    const arrestTemplate = `
+[img]https://i.imgur.com/aDC580W.png[/img]
+[divbox=#dbd3d3]
+[divbox=#4c0606][b][color=white]Suspect Details[/color][/b][/divbox]
+[divbox=white]
+[float=right][fimg=200,185]${suspectMugshot}[/fimg][/float]
+
+[b]Full Name:[/b] ${suspectName}
+[b]Phone Number:[/b] ${phoneNumber}
+[b]Time of Arrest:[/b] ${dateAndTime} (DD/MMM/YY)
+[b]Licenses:[/b] 
+[spoiler]
+[img]${suspectLicenses}[/img]
+[/spoiler]
+
+[b]Charges:[/b]
+[i][size=85]Example: Attempted SF02 - Murder of a Government Employee[/size][/i]
+[list]
+${charges}
+[/list]
+[/divbox]
+[divbox=#4c0606][b][color=white]Incident Details[/color][/b][/divbox]
+[divbox=white]
+[b]Agents/Officers Involved:[/b]
+[i][size=85]Example: Agent III John Doe[/size][/i]
+[list]
+${peopleInvolved}
+[/list]
+[i][size=85]Explain what happened, sufficient detail must be given to justify the placed charges. Include a detailed summary of start to finish, try not to leave any details out. 
+* Be sure to keep information such as witnesses or other accomplices to the crime, this helps the prosecution have the full picture in a court of law. Accomplices should have their radio frequency logged.
+* Bodycam footage is located below, DO NOT link it in this section but DO provide timestamps as they correlate to the incident.[/size][/i]
+
+[b]Summary:[/b] ${arrestSummary}
+[/divbox]
+[divbox=#4c0606][b][color=white]Evidence Details[/color][/b][/divbox]
+[divbox=white]
+[size=85]Document the possessions confiscated from the arrested suspect. Illegal possessions are to be documented individually, examples of documented illegal possessions are "Pistol .50" or "12 grams of Cocaine". Legal possessions that can be categorized may be grouped, eg. "Clothing" to describe all clothing items.
+* Where possible, the serial number of each firearm seized as evidence should be noted.
+* Individuals with a radio on them should have the frequency of that radio logged.
+[/size]
+[h]---- Add more exhibits where needed. ----[/h]
+[u]Illegal Possessions:[/u]
+[b] Exhibit:[/b] ${illegalItems}
+
+[u]Legal Possessions:[/u]
+[b] Exhibit:[/b] ${legalItems}
+[center]
+[spoiler=Photograph of Possessions (REQUIRED)]
+[img]${itemsPhoto}[/img]
+[/spoiler]
+[/center]
+
+[b]Bodycam Footage:[/b]
+[size=85][i]Provide below your bodycam evidence. Remember, the less evidence here, the more evidence that should be written in the narrative. [ooc]Include Proof of RP, if you have no recordings, using screenshots that show the situation is acceptable. Screenshots should show the suspect doing the crime, being identified, etc[/ooc][/i][/size]
+[spoiler=Bodycam Footage]
+[list]
+[*]${arrestRpProof}
+[*] ${bodycamLink}
+[/list]
+[/spoiler]
+[/divbox]
+[/divbox]
+[img]https://i.imgur.com/Fttvrwf.png[/img]`;
+
+    document.getElementById("displayArrestReportBB").value = arrestTemplate.trim();
+    document.querySelector("#displayArrestReportBB").select();
+    document.execCommand('copy');
+
+    $('#copyArrestReportSuccess').text('Copied to clipboard!');
+}
+
+// Helper function to get list items in BBCode format
+function getListItems(listId) {
+    const listItems = document.getElementById(listId).getElementsByTagName('li');
+    let items = '';
+    for (let i = 0; i < listItems.length; i++) {
+        items += `[li]${listItems[i].textContent}[/li]\n`;
+    }
+    return items;
+}
+
+</script>
+  <!-- VIP transit Report -->
+    <div id="transitSection" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #4c0606; color: white;"> <!-- Set background color to #4c0606 -->
+            <div class="card-body">
+ <!-- Transit Report Form Fields -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Agent in Charge:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtInCharge" class="form-control" style="width: 600px"placeholder="Senior Agent John Doe" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Agents Involved:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtAgentsInvolved" class="form-control" style="width: 600px"placeholder="Agent II John Doe" />
+        <div class="mt-2">
+            <button id="btnAddAgentInvolved" class="btn btn-primary">Add</button>
+            <button id="btnRemoveAgentInvolved" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="AgentInvolvedList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddAgentInvolved").addEventListener("click", function () {
+        let inputField = document.getElementById("txtAgentsInvolved");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("AgentInvolvedList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveAgentInvolved").addEventListener("click", function () {
+        let list = document.getElementById("AgentInvolvedList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+    <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Level of Threat:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtThreatLevel" class="form-control" style="width: 600px"placeholder="None/Low/High" />
+                    </div>
+                </div>
+<div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Shift Start:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtVIPShiftStart" class="form-control" style="width: 600px"placeholder="DD/MMM/YYYY XX:XX" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Weaponry Used/Carried:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtWeaponryUsed" class="form-control" style="width: 600px"placeholder="Handguns/Tazer/Heavy weapons" />
+        <div class="mt-2">
+            <button id="btnAddWeaponryUsed" class="btn btn-primary">Add</button>
+            <button id="btnRemoveWeaponryUsed" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="WeaponryUsedList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddWeaponryUsed").addEventListener("click", function () {
+        let inputField = document.getElementById("txtWeaponryUsed");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("WeaponryUsedList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveWeaponryUsed").addEventListener("click", function () {
+        let list = document.getElementById("WeaponryUsedList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+ <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Comments:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtVIPComments" class="form-control" style="width: 600px"placeholder="If none leave N/A" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Name of VIP(s):</div>
+    <div class="col-md-10">
+        <input type="text" id="txtVIPTaken" class="form-control" style="width: 600px"placeholder="Governor Lewis Langley" />
+        <div class="mt-2">
+            <button id="btnAddVIP" class="btn btn-primary">Add</button>
+            <button id="btnRemoveVIP" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="VIPList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddVIP").addEventListener("click", function () {
+        let inputField = document.getElementById("txtVIPTaken");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("VIPList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveVIP").addEventListener("click", function () {
+        let list = document.getElementById("VIPList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+ <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Requested Services:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtVIPServices" class="form-control" style="width: 600px"placeholder="Escort, Protection etc" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Destination(s):</div>
+    <div class="col-md-10">
+        <input type="text" id="txtVIPDestinations" class="form-control" style="width: 600px" />
+        <div class="mt-2">
+            <button id="btnAddDestination" class="btn btn-primary">Add</button>
+            <button id="btnRemoveDestination" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="DestinationList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddDestination").addEventListener("click", function () {
+        let inputField = document.getElementById("txtVIPDestinations");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("DestinationList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveDestination").addEventListener("click", function () {
+        let list = document.getElementById("DestinationList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Vehicle(s) Used:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtVIPVehicles" class="form-control" style="width: 600px" />
+        <div class="mt-2">
+            <button id="btnAddVehicle" class="btn btn-primary">Add</button>
+            <button id="btnRemoveVehicle" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="VehicleList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddVehicle").addEventListener("click", function () {
+        let inputField = document.getElementById("txtVIPVehicles");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("VehicleList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveVehicle").addEventListener("click", function () {
+        let list = document.getElementById("VehicleList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+<div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Use of Force:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtVIPForce" class="form-control" style="width: 600px"placeholder="Verbal, Lethal etc" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Mission Summary:</div>
+    <div class="col-md-10">
+        <textarea id="txtVIPSummary" class="form-control" style="width: 600px;" rows="5"></textarea>
+    </div>
+</div>
+          <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                       <button type="button" id="btnCopy" onClick="createDutyReport();" class="btn btn-success">
+    Submit and copy to clipboard
+</button>
+                        <p id="copyVIPReportSuccess"></p>
+                        <textarea id="displayVIPReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+function createDutyReport() {
+    function getListItemsAsBBCode(listId) {
+        let list = document.getElementById(listId);
+        let items = list.getElementsByTagName("li");
+        let bbList = "";
+        for (let item of items) {
+            bbList += `[*] ${item.textContent}\n`;
+        }
+        return bbList ? `[list]\n${bbList}[/list]` : "N/A";
+    }
+
+    const agentInCharge = document.getElementById("txtInCharge").value.trim();
+    const threatLevel = document.getElementById("txtThreatLevel").value.trim();
+    const startShiftVIP = document.getElementById("txtVIPShiftStart").value.trim();
+    const VIPComments = document.getElementById("txtVIPComments").value.trim();
+    const VIPServices = document.getElementById("txtVIPServices").value.trim();
+    const VIPForce = document.getElementById("txtVIPForce").value.trim();
+    const VIPSummary = document.getElementById("txtVIPSummary").value.trim();
+
+    const agentsInvolvedBB = getListItemsAsBBCode("AgentInvolvedList");
+    const weaponryUsedBB = getListItemsAsBBCode("WeaponryUsedList");
+    const VIPTakenBB = getListItemsAsBBCode("VIPList");
+    const VIPDestinationsBB = getListItemsAsBBCode("DestinationList");
+    const VIPVehiclesBB = getListItemsAsBBCode("VehicleList");
+
+    const VIPTemplate = `
+[img]https://i.imgur.com/bwHuU5J.png[/img]
+[divbox=#dbd3d3]
+[divbox=#4c0606][b][color=white]Agent details[/color][/b][/divbox]
+[divbox=white]
+[b]Agent in charge:[/b] ${agentInCharge}
+[b]Agents included:[/b] ${agentsInvolvedBB}
+[b]Level of threat? (Low/High/None):[/b] ${threatLevel}
+[b]Date & Time:[/b] ${startShiftVIP}
+[b]Weaponry (Handguns/Tazer/Heavy weapons):[/b] ${weaponryUsedBB}
+[b]Comments:[/b] ${VIPComments}
+[/divbox]
+[divbox=#4c0606][b][color=white]VIP details[/color][/b][/divbox]
+[divbox=white]
+[b]Name of VIP's:[/b] ${VIPTakenBB}
+[b]Requested services (What was requested from the VIP?):[/b] ${VIPServices}
+[/divbox]
+[divbox=#4c0606][b][color=white]Mission details[/color][/b][/divbox]
+[divbox=white]
+[b]Destination(s) (From start location to every official stop and end location):[/b] ${VIPDestinationsBB}
+[b]Vehicle(s) used:[/b] ${VIPVehiclesBB}
+[b]Use of force:[/b] ${VIPForce}
+[b]Mission summary:[/b] ${VIPSummary}
+Incident report: 
+[i]If an incident has happened during the VIP transit log, an incident report should ALSO be filed. If the mission finished without any issues, an incident report is not required.[/i]
+[/divbox]
+[/divbox]
+[img]https://i.imgur.com/Fttvrwf.png[/img]
+    `;
+
+    document.getElementById("displayVIPReportBB").value = VIPTemplate.trim();
+    document.querySelector("#displayVIPReportBB").select();
+    document.execCommand('copy');
+
+    document.getElementById("copyVIPReportSuccess").textContent = 'Copied to clipboard!';
+}
+
+</script>
+ <!-- Warrant report -->
+    <div id="warrantSection" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #4c0606; color: white;"> <!-- Set background color to #4c0606 -->
+            <div class="card-body">
+  <!-- Warrant Report Form Fields -->
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Suspect Name:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtWarrantName" class="form-control" style="width: 600px"placeholder="John Doe" />
+                    </div>
+                </div>
+ <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Suspect Phone Number:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtWarrantNumber" class="form-control" style="width: 600px"placeholder="John Doe" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Charges:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtWarrantCharges" class="form-control" style="width: 600px"placeholder="GM02 - Battery" />
+        <div class="mt-2">
+            <button id="btnAddWCharge" class="btn btn-primary">Add</button>
+            <button id="btnRemoveWCharge" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="WChargeList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddWCharge").addEventListener("click", function () {
+        let inputField = document.getElementById("txtWarrantCharges");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("WChargeList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveWCharge").addEventListener("click", function () {
+        let list = document.getElementById("WChargeList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Agents/Officers Involved:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtWarrantAgents" class="form-control" style="width: 600px"placeholder="Agent II John Doe" />
+        <div class="mt-2">
+            <button id="btnAddWAgent" class="btn btn-primary">Add</button>
+            <button id="btnRemoveWAgent" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="WAgentList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddWAgent").addEventListener("click", function () {
+        let inputField = document.getElementById("txtWarrantAgents");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("WAgentList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveWAgent").addEventListener("click", function () {
+        let list = document.getElementById("WAgentList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+  <div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incident Details:</div>
+    <div class="col-md-10">
+        <textarea id="txtWarrantDetails" class="form-control" style="width: 600px;" rows="5"></textarea>
+    </div>
+</div>
+  <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Method of Identification:</div>
+                    <div class="col-md-10">
+                        <input type="text" id="txtWarrantidentification" class="form-control" style="width: 600px" />
+                    </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Proof of RP:</div>
+    <div class="col-md-10">
+        <div class="input-wrapper" style="display: flex; align-items: center; width: 600px;">
+            <input type="text" id="txtWarrantRP" class="form-control" placeholder="MANDATORY" readonly style="flex: 1;" />
+            <button id="btnUploadWarrantRP" class="btn btn-success" style="margin-left: 10px;">Upload to Imgur</button>
+        </div>
+        <input type="file" id="fileWarrantRP" class="form-control mt-2" style="width: 600px;" />
+    </div>
+</div>
+<script>
+    const clientID = '47e4045e5bc753e'; // Replace with your Imgur Client ID
+
+    function uploadToImgur(fileInput, textField) {
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert("Please select a file.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("image", file);
+
+        $.ajax({
+            url: "https://api.imgur.com/3/image",
+            type: "POST",
+            headers: {
+                "Authorization": "Client-ID " + clientID
+            },
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.success) {
+                    const imageUrl = response.data.link;
+                    textField.value = imageUrl; // Set the link in the correct text box
+                } else {
+                    alert("Failed to upload the image. Please try again.");
+                }
+            },
+            error: function () {
+                alert("An error occurred while uploading the image.");
+            }
+        });
+    }
+
+    // Existing upload handlers
+    $("#btnUploadItems").click(function () {
+        const fileInput = document.getElementById("fileItems");
+        const textField = document.getElementById("txtitems");
+        uploadToImgur(fileInput, textField);
+    });
+
+    $("#btnUploadRP").click(function () {
+        const fileInput = document.getElementById("fileRP");
+        const textField = document.getElementById("txtrpProof");
+        uploadToImgur(fileInput, textField);
+    });
+
+    $("#btnUploadproofRP").click(function () {
+        const fileInput = document.getElementById("filearrestRP");
+        const textField = document.getElementById("txtarrestRP");
+        uploadToImgur(fileInput, textField);
+    });
+
+    $("#btnUploadMugshot").click(function () {
+        const fileInput = document.getElementById("fileMugshot");
+        const textField = document.getElementById("txtmugshot");
+        uploadToImgur(fileInput, textField);
+    });
+
+    // **New upload handler for Warrant Proof of RP**
+    $("#btnUploadWarrantRP").click(function () {
+        const fileInput = document.getElementById("fileWarrantRP");  // File input for Warrant Proof of RP
+        const textField = document.getElementById("txtWarrantRP");   // Text field for Warrant Proof of RP
+        uploadToImgur(fileInput, textField);  // Call the upload function
+    });
+</script>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Bodycam Footage:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtWarrantBodycam" class="form-control" style="width: 600px"placeholder="MANDATORY" />
+        <div class="mt-2">
+            <button id="btnAddWFootage" class="btn btn-primary">Add</button>
+            <button id="btnRemoveWFootage" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="WFootageList" class="mt-2"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAddWFootage").addEventListener("click", function () {
+        let inputField = document.getElementById("txtWarrantBodycam");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("WFootageList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemoveWFootage").addEventListener("click", function () {
+        let list = document.getElementById("WFootageList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+            <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createWarrantReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyWarrantReportSuccess"></p>
+                        <textarea id="displayWarrantReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+function createWarrantReport() {
+    const WarrantName = $('#txtWarrantName').val();
+    const WarrantNumber = $('#txtWarrantNumber').val();
+    const WarrantDetails = $('#txtWarrantDetails').val();
+    const WarrantID = $('#txtWarrantidentification').val();
+    const WarrantRP = $('#txtWarrantRP').val();
+    const WarrantBodycam = $('#txtWarrantBodycam').val();
+
+    // Process charges into BBCode list format
+    let chargeList = "";
+    $("#WChargeList li").each(function () {
+        chargeList += "[*] " + $(this).text() + "\n";
+    });
+
+    // Process officers involved into BBCode list format
+    let agentList = "";
+    $("#WAgentList li").each(function () {
+        agentList += "[*] " + $(this).text() + "\n";
+    });
+
+    // Process bodycam footage into BBCode list format
+    let footageList = "";
+    $("#WFootageList li").each(function () {
+        footageList += "[*] " + $(this).text() + "\n";
+    });
+
+    const warrantTemplate = `
+[img]https://i.imgur.com/cz5ry8N.png[/img]
+[divbox=#dbd3d3]
+[divbox=#4c0606][b][color=white]Suspect Details[/color][/b][/divbox]
+[divbox=white]
+[b]Full Name:[/b] ${WarrantName}
+[b]Phone Number:[/b] ${WarrantNumber}
+
+[b]Charges:[/b] 
+[list]
+${chargeList}
+[/list]
+[/divbox]
+
+[divbox=#4c0606][b][color=white]Incident Narrative[/color][/b][/divbox]
+[divbox=white]
+[b]Agents/Officers Involved:[/b] 
+[list]
+${agentList}
+[/list]
+
+[b]Explain what happened, sufficient detail must be given to justify the placed charges, and videos could be provided. Include location, time of date etc:[/b]
+${WarrantDetails}
+
+[b]Method of Identification:[/b]
+${WarrantID}
+
+[/divbox]
+
+[divbox=#4c0606][b][color=white]Evidence Details[/color][/b][/divbox]
+[divbox=white]
+[b]Document the possessions confiscated from the charged suspect.[/b]
+[size=85]Possessions are to be documented individually, examples of documented illegal possessions are "Pistol .50" or "12 grams of Cocaine". Legal possessions that can be categorized may be grouped, eg. "Clothing" to describe all clothing items.[/size]
+
+[spoiler=Bodycam Footage]
+[spoiler=((Proof of RP))]
+((Include Proof of RP, if you have no recordings use /do immediately while the information is fresh. Then screenshot and submit it below))
+${WarrantRP}
+[/spoiler]
+[list]
+${footageList}
+[/list]
+[/spoiler]
+[/divbox]
+[/divbox]
+[img]https://i.imgur.com/Fttvrwf.png[/img]`;
+
+    document.getElementById("displayWarrantReportBB").value = warrantTemplate.trim();
+    document.querySelector("#displayWarrantReportBB").select();
+    document.execCommand('copy');
+
+    $('#copyWarrantReportSuccess').text('Copied to clipboard!');
+}
 </script>
